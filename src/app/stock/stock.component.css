@@ -1,0 +1,10 @@
+.table .test .ligne-rouge {
+  background-color: rgb(102, 0, 255);
+}
+.table .test .ligne-rouge td {
+  color: rgb(255, 255, 255);
+}
+.table .test td {
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+}/*# sourceMappingURL=Stock.component.css.map */

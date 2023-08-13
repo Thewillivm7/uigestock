@@ -1,0 +1,16 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Article</th>
+        <th scope="col">Quantité</th>
+        <th scope="col">Stock Alerte</th>
+      </tr>
+    </thead>
+    <tbody class="test">
+      <tr *ngFor="let item of tableData" [class.ligne-rouge]="(+item.reste) <= item.stockalertearticle" >
+        <td>{{item.designationarticle}}</td>
+        <td>{{item.reste}}</td>
+        <td>{{item.stockalertearticle}}</td>
+      </tr>
+    </tbody>
+  </table>

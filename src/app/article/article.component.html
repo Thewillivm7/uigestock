@@ -1,0 +1,45 @@
+<div class="corpsarticle">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Nouvel article
+    </button>
+  
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Nouvel Article</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="corpsmodal">
+            <label for="designantionarticle">Nom article</label>
+            <input id="nbarticle" type="text" [(ngModel)]="designationarticle">
+            <label for="stockalertearticle">stock alerte</label>
+            <input id="stockalertearticle" type="text"[(ngModel)]="stockalertearticle">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" (click)="onSubmit()" class="btn btn-primary">Ajouter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Désignation</th>
+            <th scope="col">Stock Alerte</th>
+            <th scope="col">Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of tablearticle">
+            <td>{{ item.idarticle }}</td>
+            <td>{{item.designationarticle}}</td>
+            <td>{{ item.stockalertearticle }}</td>
+            <td><button class="btn btn-primary"><i class="fas fa-trash-alt"></i></button></td>
+          </tr>
+        </tbody>
+      </table>
+</div>

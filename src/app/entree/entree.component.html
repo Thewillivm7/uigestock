@@ -1,0 +1,52 @@
+<div class="corpsentree">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Nouvelle Entrée
+    </button>
+  
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Nouvelle Entrée</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="corpsmodal">
+            <label for="nomarticle">Article</label>
+            <select id="nomarticle" class="form-select" [(ngModel)]="selectedArticleId" aria-label="Default select example">
+                <option *ngFor="let item of tablearticle" value="{{item.idarticle}}">{{item.designationarticle}}</option>
+            </select>
+            <label for="nbarticle">Quantité</label>
+            <input id="nbarticle" type="number" [(ngModel)]="nbarticle">
+            <label for="pachattotal">Prix total d'achat</label>
+            <input id="pachattotal" type="text"[(ngModel)]="pachattotal">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" (click)="onSubmit()" class="btn btn-primary">Ajouter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Article</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">PU</th>
+            <th scope="col">Total</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of tableData">
+            <th scope="row">{{ item.dateaction  | date: 'dd/MM/yy' }}</th>
+            <td>{{ item.designationarticle}}</td>
+            <td>{{ item.nbarticle }}</td>
+            <td>{{item.totalaction/item.nbarticle | number: '1.0-2'}}</td>
+            <td>{{ item.totalaction }}</td>
+            <td><button class="btn btn-primary"><i class="fas fa-trash-alt"></i></button></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
